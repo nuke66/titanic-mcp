@@ -134,7 +134,7 @@ Start the HTTP server:
 uvicorn app:app --host 0.0.0.0 --port 8005 --log-level debug
 ```
 
-The MCP HTTP endpoint will be served at `http://localhost:8005/`.
+The MCP HTTP endpoint will be served at `http://localhost:8006/`.
 
 
 
@@ -163,7 +163,7 @@ If `AUTH_TOKEN` is not set or empty, authentication is disabled. Auth decisions 
 Quick curl test (replace YOUR_TOKEN):
 
 ```bash
-curl -i "http://localhost:8005/mcp?token=YOUR_TOKEN"
+curl -i "http://localhost:8006/mcp?token=YOUR_TOKEN"
 ```
 
 
