@@ -1,7 +1,10 @@
 # Titanic MCP
-Simple MCP server exploring using an MCP to provide tools to explore the titanic dataset.
+Simple MCP server exploring using an MCP to provide tools to explore the titanic dataset. Built in Python, implements FastMCP (v2), and runs on Docker.
 
-Implements FastMCP and running on Docker.
+<img src="images/example_output.png" alt="Example output" width="350">
+
+---
+Windows install instructions:
 
 ## 1. Install linux, wsl2, and docker desktop
 
@@ -11,7 +14,20 @@ https://liquid-interactive.atlassian.net/wiki/spaces/MAC/pages/4075618546/Local+
 Also install Python 12 (12.0 or greater) if not already on your system
 https://www.python.org/downloads/release/python-3120/
 
-## 2. Build image and load into docker
+## 2. Build the uv project
+
+Install uv if not already installed
+```
+pip install uv
+```
+
+Now build the project.  On the command line in the base directory of the solution
+```
+uv sync
+```
+
+
+## 3. Build image and load into docker
 
 In the directory of the solution on you machine run the following commands:
 ```
@@ -19,8 +35,8 @@ docker compose build --no-cache server
 docker compose up -d
 ```
 
-## 3. Update Claude desktop
-### 3.1 Setup MCP config
+## 4. Update Claude desktop
+### 4.1 Setup MCP config
 In Claude Desktop click File -> Settings, then select Developer
 Click on Edit Config button
 Put in the following config
@@ -46,7 +62,7 @@ Put in the following config
 
 ```
 
-### 3.2 Using a token (optional but recommended)
+### 4.2 Using a token (optional but recommended)
 If you set `AUTH_TOKEN` in `.env`, append it to the MCP URL as a query param:
 
 ```json
@@ -69,7 +85,7 @@ If you set `AUTH_TOKEN` in `.env`, append it to the MCP URL as a query param:
 }
 ```
 
-### 3.3 Close Claude and the background process.
+### 4.3 Close Claude and the background process.
 
 <img src="images/claude_3.png" alt="Claude MCP Setup 3" width="150">
 
@@ -78,12 +94,9 @@ If you set `AUTH_TOKEN` in `.env`, append it to the MCP URL as a query param:
 <img src="images/claude_2.png" alt="Claude MCP Setup 2" width="300">
 
 
-The model should be able to call it to complete requests
+The model should now be able to connect to the MCP server.
 
-<img src="images/claude_1.png" alt="Claude MCP Setup 1" width="500">
-
-
-## 4. In Cursor
+## 5. In Cursor
 
 Go to Cursor Settings -> MCP & Integrations, under MCP Tools add a new MCP Server.
 
